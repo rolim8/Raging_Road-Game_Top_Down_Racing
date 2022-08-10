@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="score" sid="245958370893168" static="0" type="number">0</variable>
+        <event-group description="" sid="796302802908056" title="Setup">
+            <sub-events>
+                <event-block sid="368476218980539">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="857003395482436" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="521443740771421" type="explosion_car" />
+                        <action id="-9" name="Destroy" sid="472144607743103" type="enemy_car" />
+                        <action behavior="Pin" id="0" name="Pin to object" sid="431893613269517" type="boost_car">
+                            <param id="0" name="Pin to">player_car</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="279759529991708" type="Audio">
+                            <param id="0" name="Audio file">late-night-race</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-20</param>
+                            <param id="1" name="Tag (optional)">&quot;music&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="605613890380037">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="175125694775385" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="924004874896186">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="746107140397283" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="950008108870443" type="player_car">
+                                    <param id="0" name="X">lerp(player_car.X, lane1.X, 0.1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="311792756507023">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="457552970220081" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="825484228139522" type="player_car">
+                                    <param id="0" name="X">lerp(player_car.X, lane2.X, 0.1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="130028685101126">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="256502624361006" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="597487045042501" type="player_car">
+                                    <param id="0" name="X">lerp(player_car.X, lane3.X, 0.1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="644048787010561">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="650464353925333" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="259283672728935" type="player_car">
+                                    <param id="0" name="X">lerp(player_car.X, lane4.X, 0.1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <variable constant="0" name="paused" sid="587940612241295" static="0" type="number">0</variable>
+        <event-group description="" sid="792623866490734" title="Move">
+            <sub-events>
+                <event-block sid="846184577301999">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="105343222169365" type="Keyboard">
+                            <param id="0" name="Key">82</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="458766828735599" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="305988693788050">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="404941800442046" type="Keyboard">
+                            <param id="0" name="Key">80</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="426474937035113">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="174021244359831" type="System">
+                                    <param id="0" name="Variable">paused</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set time scale" sid="646685589883868" type="System">
+                                    <param id="0" name="Time scale">1.0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="379003757498836" type="System">
+                                    <param id="0" name="Variable">paused</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="762656481395013">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="620129052473996" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set time scale" sid="885349377812856" type="System">
+                                    <param id="0" name="Time scale">0.0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="551467541417211" type="System">
+                                    <param id="0" name="Variable">paused</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="878429605698401">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="838750427420034" type="Keyboard">
+                            <param id="0" name="Key">27</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="461165811021268" type="System">
+                            <param id="0" name="Layout">Title sc</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-group description="" sid="126401190982406" title="Keyboard">
+                    <sub-events>
+                        <event-block sid="171291189129459">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="914174933157836" type="Keyboard">
+                                    <param id="0" name="Key">90</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="381301067610230" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="584050005314461">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="966668233571440" type="Keyboard">
+                                    <param id="0" name="Key">88</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="765117444197610" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="662984766906715">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="830247102401039" type="Keyboard">
+                                    <param id="0" name="Key">67</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="958210597918145" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Value">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="657528521814681">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="536722055430743" type="Keyboard">
+                                    <param id="0" name="Key">86</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="532207802034690" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Value">4</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="229818080179266" title="Touch">
+                    <sub-events>
+                        <event-block sid="144819197009333">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="548398954053330" type="Touch">
+                                    <param id="0" name="Object">lane1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="770178882656372" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="443076229676895">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="301082836141452" type="Touch">
+                                    <param id="0" name="Object">lane2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="684481723743830" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="830730802613796">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="854313659476063" type="Touch">
+                                    <param id="0" name="Object">lane3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="227375259979643" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Value">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="590859899064134">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="272941797515048" type="Touch">
+                                    <param id="0" name="Object">lane4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="140311474869043" type="player_car">
+                                    <param id="0" name="Instance variable">lane</param>
+                                    <param id="1" name="Value">4</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="901965519622708" title="Objects">
+            <sub-events>
+                <event-block sid="536642520740068">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="383112173664054" type="System">
+                            <param id="0" name="Interval (seconds)">0.5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="271933862995522" type="System">
+                            <param id="0" name="Object to create">enemy_car</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">choose(lane1.X, lane2.X, lane3.X, lane4.X)</param>
+                            <param id="3" name="Y">-50</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="602186141430228" type="enemy_car">
+                            <param id="0" name="Frame number">choose(0, 1, 2, 3, 4)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="590386273533141">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="423928647079163" type="enemy_car">
+                            <param id="0" name="Object">Coletor</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="291453090607755" type="enemy_car" />
+                        <action id="-10" name="Add to" sid="935299444959597" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Value">0.1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="338091264642799">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="287945009802499" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="458606516717087">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="861355338410080" type="Text">
+                                    <param id="0" name="Instance variable">score</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;score&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="106936434673220" type="Text">
+                                    <param id="0" name="Text">score</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="532196842968024">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="492101303474508" type="player_car">
+                    <param id="0" name="Object">enemy_car</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="497766328007469" type="player_car">
+                    <param id="0" name="Object">explosion_car</param>
+                    <param id="1" name="Layer">player_car.LayerName</param>
+                    <param id="2" name="Image point">player_car.Angle</param>
+                </action>
+                <action id="-9" name="Destroy" sid="241107794851365" type="player_car" />
+                <action id="-9" name="Destroy" sid="305557467294267" type="boost_car" />
+                <action id="6" name="Stop" sid="781918054205423" type="Audio">
+                    <param id="0" name="Tag">&quot;music&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="303689161558999" type="Audio">
+                    <param id="0" name="Audio file">Explosion SFX</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">5</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="456931320122743" type="System">
+                    <param id="0" name="Seconds">1.3</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="635599856019086" type="System">
+                    <param id="0" name="Layout">Title sc</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
